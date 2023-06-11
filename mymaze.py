@@ -111,7 +111,7 @@ class Hero:
             logging.info(
                 f"Герой {self.name} использовал аптечку. "
                 f"Теперь у {self.name} {self.lives} жизней и {self.heals} аптечки.")
-            return 'win'
+            return 'heal'
         if self.heals == 0:
             logging.info("Аптечки закончились.")
             return False
