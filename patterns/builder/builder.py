@@ -120,8 +120,8 @@ class Director:
     def __init__(self):
         self.builder = None
 
-    def set_builder(self, builder: Builder):
-        self.builder = builder
+    def set_builder(self, constructor: Builder):
+        self.builder = constructor
 
     def make_chair(self):
         if not self.builder:
