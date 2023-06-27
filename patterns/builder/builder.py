@@ -32,7 +32,7 @@ class ChairEquipment(Enum):
 
 class Chair:
     def __init__(self, type):
-        self.type = type
+        self.type: str = type
         self.base_material = None
         self.material = None
         self.equipment = []
