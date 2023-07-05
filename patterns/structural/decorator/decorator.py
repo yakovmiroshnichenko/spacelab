@@ -11,10 +11,10 @@ class Base(ABC):
 class ChairBase(Base):
     """Класс декорируемого объекта"""
     def __init__(self, cost):
-        self.cost = cost
+        self.__cost = cost
 
     def cost(self) -> float:
-        return self.cost
+        return self.__cost
 
 
 class IDecorator(Base):
@@ -26,28 +26,28 @@ class IDecorator(Base):
 
 class ChairBasePlastic(IDecorator):
     def __init__(self, wrapped: Base, chair_cost: float):
-        self.wrapped = wrapped
-        self.cost = chair_cost
-        self.name = "Plastic"
+        self.__wrapped = wrapped
+        self.__cost = chair_cost
+        self.__name = "Plastic"
 
     def cost(self) -> float:
-        return self.cost+self.wrapped.cost()
+        return self.__cost+self.__wrapped.cost()
 
     def name(self) -> str:
-        return self.name
+        return self.__name
 
 
 class ChairBaseIron(IDecorator):
     def __init__(self, wrapped: Base, chair_cost: float):
-        self.wrapped = wrapped
-        self.cost = chair_cost
-        self.name = "Iron"
+        self.__wrapped = wrapped
+        self.__cost = chair_cost
+        self.__name = "Iron"
 
     def cost(self) -> float:
-        return self.cost+self.wrapped.cost()
+        return self.__cost+self.__wrapped.cost()*3
 
     def name(self) -> str:
-        return self.name
+        return self.__name
 
 
 if __name__ == "__main__":
@@ -56,7 +56,8 @@ if __name__ == "__main__":
 
     chair_base = ChairBase(3.4)
     print(f"Chair base price: = {chair_base.cost()}")
-    plastic = ChairBasePlastic(chair_base, 10)
+    plastic = ChairBasePlastic(chair_base, 7)
     print_chair(plastic)
-    iron = ChairBaseIron(chair_base, 7)
+    iron = ChairBaseIron(chair_base, 10)
     print_chair(iron)
+

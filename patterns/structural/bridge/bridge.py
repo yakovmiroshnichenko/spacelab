@@ -79,6 +79,7 @@ class AutoMachineImplementor(IMachineImplementor):
 
 
 class Machine:
+    """Класс станка"""
 
     def __init__(self, implementor: IMachineImplementor):
         self.__implementor = implementor
