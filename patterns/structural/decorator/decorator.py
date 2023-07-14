@@ -31,7 +31,8 @@ class ChairBasePlastic(IDecorator):
         self.__name = "Plastic"
 
     def cost(self) -> float:
-        return self.__cost+self.__wrapped.cost()
+        result = self.__cost + self.__wrapped.cost()
+        return result
 
     def name(self) -> str:
         return self.__name
