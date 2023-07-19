@@ -58,8 +58,8 @@ class Order:
         self.cost = cost_order
         self._strategy = strategy
 
-    def set_workshop(self, delivery):
-        self._strategy = delivery
+    def set_workshop(self, strategy):
+        self._strategy = strategy
 
     def __str__(self):
         return f"""Ваш заказ: {self.type}. Стоимость материалов: {self.cost}$ +

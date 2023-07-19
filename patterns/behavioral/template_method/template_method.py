@@ -56,7 +56,7 @@ class KitchenChairMaker(ChairMaker):
     """Класс изготовления кухонного стула"""
 
     def sheathe_material(self, chair: Chair) -> None:
-        chair.add_element('')
+        chair.add_element('Fabric')
 
     def add_improvement(self, chair: Chair) -> None:
         chair.add_element('Headrest')
