@@ -4,9 +4,9 @@ from enum import Enum
 
 class OrderState(Enum):
     """Возможные состояния заказа на сайте-каталоге"""
-    ADD_TO_CART = 1  #
-    RECEIVE_PAYMENT = 2  # Очікує оплати
-    SEND_ORDER = 3  # Передано перевізнику
+    ADD_TO_CART = 1
+    RECEIVE_PAYMENT = 2
+    SEND_ORDER = 3
 
 
 class Catalog:
@@ -43,15 +43,15 @@ class State(ABC):
     """Базовый класс состояние заказа"""
 
     @abstractmethod
-    def make_order(self, machine) -> None:  # Зробити замовлення
+    def make_order(self, machine) -> None:  # Заказ
         ...
 
     @abstractmethod
-    def insert_money(self, machine) -> None:  # Очікує оплати
+    def insert_money(self, machine) -> None:  # Ожидание оплаты
         ...
 
     @abstractmethod
-    def send_order(self, machine) -> None:  # Відправляє замовлення
+    def send_order(self, machine) -> None:  # Отправка
         ...
 
     def __str__(self):
@@ -62,7 +62,7 @@ class ADD_TO_CART_State(State):
     """Статус добавление заказа"""
 
     def make_order(self, catalog) -> None:
-        cost = 50  # Вартість товару
+        cost = 50  # Стоимость товара
         print(f"Спасибо за заказ, ожидаем оплату в размере {cost}$")
         catalog.set_state(OrderState.RECEIVE_PAYMENT)
 
@@ -77,7 +77,7 @@ class RECEIVE_PAYMENT_State(State):
     """Статус ожидания оплаты"""
 
     def make_order(self, machine) -> None:
-        cost = 307  # Вартість товару
+        cost = 307  # Стоимость товара
         print(f'Товар добавлен в корзину, стоимость {cost}$')
 
     def insert_money(self, machine) -> None:
