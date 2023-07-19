@@ -64,7 +64,7 @@ class KitchenChairMaker(ChairMaker):
         chair.add_element('Height adjuster')
 
     def create(self, chair: Chair) -> None:
-        print("Кресло будет изготовлено через 3 часа")
+        print("Кресло будет изготовлено через 4 часа")
 
 
 class Master:
